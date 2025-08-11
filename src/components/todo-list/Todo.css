@@ -5,6 +5,9 @@
   height: 100vh;
   background-size: cover;
   background-position: center;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
 }
 .box {
   background: rgba(255, 255, 255, 0.9);
@@ -74,4 +77,48 @@ li button {
   cursor: pointer;
 }
 
+/* .view-product button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
 
+.view-product button:hover {
+  background-color: #4caf50;
+  transform: scale(1.05);
+} */
+.navigation-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #282c34;
+  padding: 15px 20px;
+  color: white;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  
+}
+.view-products-btn {
+  /* background-color: #4cafef; */
+  border: none;
+  padding: 10px 15px;
+  color: blue;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.2s ease-in-out;
+}
+
+.view-products-btn:hover {
+  color: #3a9ed9;
+}
+.App-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+}

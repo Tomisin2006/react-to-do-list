@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import "./Todo.css";
 import ConfirmModal from "../../features/modals/ConfirmModal";
+import { useNavigate } from "react-router-dom";
 
 function TodoList() {
   const [task, setTask] = useState("");
@@ -14,6 +15,8 @@ function TodoList() {
 
   // Error Validation check
   const [error, setError] = useState("");
+
+ const navigate = useNavigate();
 
   useEffect(() => {
     const storedTasks = localStorage.getItem("myTasks");
@@ -77,11 +80,12 @@ function TodoList() {
   };
 
   return (
+    
     <div className="container">
       <div className="box">
-        <h1>My To-Do List</h1>
-
-        <div className="input-section">
+        <h1 className="App-title">My To-Do List</h1>
+        
+<div className="input-section">
           <input
             type="text"
             value={task}
@@ -90,19 +94,21 @@ function TodoList() {
           />
           <button onClick={addTask}>Add Task</button>
         </div>
-
         <ul>
+          
           {tasks.map((item) => (
             <li key={item.id}>
               {editTaskId === item.id ? (
-                <>
+                <div className="input-section">
                   <input
                     type="text"
                     value={editText}
                     onChange={(e) => setEditText(e.target.value)}
                   />
                   <button onClick={() => saveTask(item.id)}>Save</button>
-                </>
+                  
+                 </div>
+                
               ) : (
                 <>
                   <span
@@ -123,16 +129,29 @@ function TodoList() {
               )}
             </li>
           ))}
+          <div>
+            <button
+    className="view-products"
+    onClick={() => navigate("/products")}
+  >
+    View Products
+  </button>
+          </div>
         </ul>
       {error && <p className="error-text" style={{ color: 'red', fontSize: 12 }}>{error}</p>}
       </div>
+      
         <ConfirmModal
         isOpen={showModal}
         onClose={() => setShowModal(false)}
         onConfirm={deleteTask}
         message="Are you sure you want to delete this task?"
       />
+      
     </div>
+     
+    
+     
   );
 }
 
